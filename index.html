@@ -1,59 +1,57 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Redirecionando...</title>
+
   <style>
     body {
-      background-color: #000000;
+      background-color: #000;
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      color: #fff;
+      text-align: center;
     }
-    .loading-container {
+
+    .container {
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
     }
+
     h1 {
       font-size: 18px;
-      color: #FFFFFF;
       margin-bottom: 20px;
     }
-    .loading {
-      animation: rotate 1s linear infinite;
-      border: 5px solid #4F4F4F;
-      border-top: 5px solid #00FF00;
-      border-radius: 50%;
-      height: 50px;
+
+    .loader {
       width: 50px;
+      height: 50px;
+      border: 5px solid #444;
+      border-top: 5px solid #00ff00;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
     }
-    @keyframes rotate {
-      0% { transform: rotate(0); }
-      100% { transform: rotate(360deg); }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    p {
+      font-size: 14px;
+      margin-top: 15px;
+      opacity: 0.8;
     }
   </style>
 
-  <script>
-    function redirecionar() {
-      // Redireciona diretamente para o canal do Telegram
-      window.location.href = "https://t.me/+yIR10SX3F5hiOTI5";
-    }
-
-    function enviarPixel() {
-      // Função vazia apenas para evitar erro no onload
-    }
-  </script>
-
-  <!-- Pixel do Facebook -->
+  <!-- Facebook Pixel -->
   <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -63,16 +61,18 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
+
     fbq('init', '1554046405266903');
-    fbq('track', 'Pageview');
   </script>
 
-</head>
+  <script>
+    function enviarPageView() {
+      if (typeof fbq === 'function') {
+        fbq('track', 'PageView');
+        console.log('PageView enviado');
+      }
+    }
 
-<body onload="redirecionar(); enviarPixel();">
-  <div class="loading-container">
-    <h1>Aguarde alguns segundos...</h1>
-    <div class="loading"></div>
-  </div>
-</body>
-</html>
+    function redirecionarTelegram() {
+      setTimeout(function () {
+        window.location.href = "https://t.me/+yIR10SX3F5hiOTI
