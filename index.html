@@ -75,4 +75,22 @@
 
     function redirecionarTelegram() {
       setTimeout(function () {
-        window.location.href = "https://t.me/+yIR10SX3F5hiOTI
+        window.location.href = "https://t.me/+yIR10SX3F5hiOTI5";
+      }, 3000); // 3 segundos (tempo seguro)
+    }
+
+    window.onload = function () {
+      enviarPageView();
+      redirecionarTelegram();
+    };
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Aguarde, estamos te direcionando…</h1>
+    <div class="loader"></div>
+    <p>Você será levado ao canal oficial no Telegram</p>
+  </div>
+</body>
+</html>
