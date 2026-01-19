@@ -1,96 +1,73 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Redirecionando...</title>
-
-  <style>
-    body {
-      background-color: #000;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      color: #fff;
-      text-align: center;
-    }
-
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    h1 {
-      font-size: 18px;
-      margin-bottom: 20px;
-    }
-
-    .loader {
-      width: 50px;
-      height: 50px;
-      border: 5px solid #444;
-      border-top: 5px solid #00ff00;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    p {
-      font-size: 14px;
-      margin-top: 15px;
-      opacity: 0.8;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <title>Acesso Liberado</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Facebook Pixel -->
   <script>
     !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod ?
+    n.callMethod.apply(n,arguments) : n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0';
+    n.queue=[]; t=b.createElement(e); t.async=!0;
+    t.src=v; s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
 
-    fbq('init', '1554046405266903');
+    fbq('init', 'SEU_PIXEL_ID_AQUI');
+    fbq('track', 'PageView');
   </script>
 
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=SEU_PIXEL_ID_AQUI&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- Fim Pixel -->
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #fff;
+      text-align: center;
+    }
+
+    .box {
+      max-width: 420px;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 15px;
+      opacity: 0.85;
+    }
+  </style>
+
   <script>
-    function enviarPageView() {
-      if (typeof fbq === 'function') {
-        fbq('track', 'PageView');
-        console.log('PageView enviado');
-      }
-    }
-
-    function redirecionarTelegram() {
-      setTimeout(function () {
-        window.location.href = "https://t.me/+yIR10SX3F5hiOTI5";
-      }, 3000); // 3 segundos (tempo seguro)
-    }
-
-    window.onload = function () {
-      enviarPageView();
-      redirecionarTelegram();
-    };
+    setTimeout(function () {
+      window.location.href = "https://t.me/+yIR10SX3F5hiOTI5";
+    }, 1500);
   </script>
 </head>
 
 <body>
-  <div class="container">
-    <h1>Aguarde, estamos te direcionando…</h1>
-    <div class="loader"></div>
-    <p>Você será levado ao canal oficial no Telegram</p>
+  <div class="box">
+    <h1>Acesso liberado</h1>
+    <p>Estamos te direcionando para o conteúdo exclusivo no Telegram.<br>
+    Aguarde alguns segundos…</p>
   </div>
 </body>
 </html>
