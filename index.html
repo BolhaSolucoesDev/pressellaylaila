@@ -63,34 +63,52 @@
     'https://connect.facebook.net/en_US/fbevents.js');
 
     fbq('init', '1554046405266903');
+    fbq('track', 'PageView');
   </script>
 
   <script>
-    function enviarPageView() {
-      if (typeof fbq === 'function') {
-        fbq('track', 'PageView');
-        console.log('PageView enviado');
-      }
-    }
+    function redirecionarWhatsApp() {
 
-    function redirecionarTelegram() {
+      // 🔹 COLOQUE SEUS DOIS NÚMEROS AQUI (formato internacional)
+      var numero1 = "5531972548147";
+      var numero2 = "5531972548147";
+
+      // 🔹 Mensagem automática
+      var mensagem = "Olá, quero ter acesso aos seu conteudos";
+      var mensagemCodificada = encodeURIComponent(mensagem);
+
+      // Alternância automática
+      var ultimoNumero = localStorage.getItem("ultimoNumero");
+      var destino;
+
+      if (ultimoNumero === numero1) {
+        destino = numero2;
+        localStorage.setItem("ultimoNumero", numero2);
+      } else {
+        destino = numero1;
+        localStorage.setItem("ultimoNumero", numero1);
+      }
+
+      var linkFinal = "https://wa.me/" + destino + "?text=" + mensagemCodificada;
+
+      // 🔹 Espera 3 segundos antes de redirecionar
       setTimeout(function () {
-        window.location.href = "https://t.me/+yIR10SX3F5hiOTI5";
-      }, 3000); // 3 segundos (tempo seguro)
+        window.location.replace(linkFinal);
+      }, 3000);
     }
 
     window.onload = function () {
-      enviarPageView();
-      redirecionarTelegram();
+      redirecionarWhatsApp();
     };
   </script>
+
 </head>
 
 <body>
   <div class="container">
     <h1>Aguarde, estamos te direcionando…</h1>
     <div class="loader"></div>
-    <p>Você será levado ao canal oficial no Telegram</p>
+    <p>Você será conectado ao nosso atendimento no WhatsApp</p>
   </div>
 </body>
 </html>
