@@ -66,39 +66,28 @@
     fbq('track', 'PageView');
   </script>
 
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1554046405266903&ev=PageView&noscript=1"/>
+  </noscript>
+
   <script>
-    function redirecionarWhatsApp() {
-
-      // 🔹 COLOQUE SEUS DOIS NÚMEROS AQUI (formato internacional)
-      var numero1 = "5531972548147";
-      var numero2 = "5531972548147";
-
-      // 🔹 Mensagem automática
-      var mensagem = "Olá, quero ter acesso aos seu conteudos";
-      var mensagemCodificada = encodeURIComponent(mensagem);
-
-      // Alternância automática
-      var ultimoNumero = localStorage.getItem("ultimoNumero");
-      var destino;
-
-      if (ultimoNumero === numero1) {
-        destino = numero2;
-        localStorage.setItem("ultimoNumero", numero2);
-      } else {
-        destino = numero1;
-        localStorage.setItem("ultimoNumero", numero1);
+    function enviarEventos() {
+      if (typeof fbq === 'function') {
+        fbq('track', 'ViewContent');
+        fbq('track', 'Lead');
       }
+    }
 
-      var linkFinal = "https://wa.me/" + destino + "?text=" + mensagemCodificada;
-
-      // 🔹 Espera 3 segundos antes de redirecionar
+    function redirecionarInstagram() {
       setTimeout(function () {
-        window.location.replace(linkFinal);
-      }, 3000);
+        window.location.replace("https://www.instagram.com/laiane_lailaa/");
+      }, 3500);
     }
 
     window.onload = function () {
-      redirecionarWhatsApp();
+      enviarEventos();
+      redirecionarInstagram();
     };
   </script>
 
@@ -108,7 +97,7 @@
   <div class="container">
     <h1>Aguarde, estamos te direcionando…</h1>
     <div class="loader"></div>
-    <p>Você será conectado ao nosso atendimento no WhatsApp</p>
+    <p>Você será levado ao perfil oficial no Instagram</p>
   </div>
 </body>
 </html>
