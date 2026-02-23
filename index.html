@@ -79,15 +79,23 @@
       }
     }
 
-    function redirecionarInstagram() {
+    function redirecionarTelegram() {
       setTimeout(function () {
-        window.location.replace("https://www.instagram.com/laiane_lailaa/");
+
+        // Tenta abrir direto no app
+        window.location.href = "tg://resolve?domain=layylaila_bot";
+
+        // Fallback para web caso não tenha app
+        setTimeout(function() {
+          window.location.href = "https://t.me/layylaila_bot";
+        }, 1500);
+
       }, 3500);
     }
 
     window.onload = function () {
       enviarEventos();
-      redirecionarInstagram();
+      redirecionarTelegram();
     };
   </script>
 
@@ -97,7 +105,7 @@
   <div class="container">
     <h1>Aguarde, estamos te direcionando…</h1>
     <div class="loader"></div>
-    <p>Você será levado ao perfil oficial no Instagram</p>
+    <p>Você será levado ao atendimento exclusivo</p>
   </div>
 </body>
 </html>
