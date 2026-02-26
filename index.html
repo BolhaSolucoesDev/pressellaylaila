@@ -79,15 +79,15 @@
       }
     }
 
-    function redirecionarTelegram() {
+    function redirecionarInstagram() {
       setTimeout(function () {
 
         // Tenta abrir direto no app
-        window.location.href = "tg://resolve?domain=layylaila_bot";
+        window.location.href = "instagram://user?username=laay_laila";
 
         // Fallback para web caso não tenha app
         setTimeout(function() {
-          window.location.href = "https://t.me/layylaila_bot";
+          window.location.href = "https://www.instagram.com/laay_laila";
         }, 1500);
 
       }, 3500);
@@ -95,7 +95,7 @@
 
     window.onload = function () {
       enviarEventos();
-      redirecionarTelegram();
+      redirecionarInstagram();
     };
   </script>
 
