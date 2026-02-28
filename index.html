@@ -79,15 +79,18 @@
       }
     }
 
-    function redirecionarInstagram() {
+    function redirecionarWhatsApp() {
       setTimeout(function () {
 
-        // Tenta abrir direto no app
-        window.location.href = "instagram://user?username=laay_laila";
+        var mensagem = "Olá, vim pelo anúncio e quero acesso aos conteúdos exclusivos 🔥";
+        var mensagemCodificada = encodeURIComponent(mensagem);
 
-        // Fallback para web caso não tenha app
+        // Tenta abrir direto no app do WhatsApp
+        window.location.href = "whatsapp://send?phone=553172548147&text=" + mensagemCodificada;
+
+        // Fallback para WhatsApp Web
         setTimeout(function() {
-          window.location.href = "https://www.instagram.com/laay_laila";
+          window.location.href = "https://wa.me/553172548147?text=" + mensagemCodificada;
         }, 1500);
 
       }, 3500);
@@ -95,7 +98,7 @@
 
     window.onload = function () {
       enviarEventos();
-      redirecionarInstagram();
+      redirecionarWhatsApp();
     };
   </script>
 
