@@ -85,7 +85,8 @@ function enviarEventos(){
 
 function redirecionarInstagram(){
 
-  var usuario = "laianelaila77";
+  var usuario = "layy_oliveira7";
+
   var app = "instagram://user?username=" + usuario;
   var web = "https://www.instagram.com/" + usuario;
 
@@ -95,17 +96,14 @@ function redirecionarInstagram(){
 
     if(isMobile){
 
-      // tenta abrir no aplicativo
       window.location.href = app;
 
-      // fallback caso não abra
       setTimeout(function(){
         window.location.href = web;
       },1500);
 
     }else{
 
-      // desktop abre direto no navegador
       window.location.href = web;
 
     }
